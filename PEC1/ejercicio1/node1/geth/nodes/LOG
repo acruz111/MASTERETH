@@ -1,0 +1,11 @@
+=============== Sep 16, 2018 (CEST) ===============
+22:34:59.207402 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:34:59.220777 db@open opening
+22:34:59.222141 version@stat F·[] S·0B[] Sc·[]
+22:34:59.225908 db@janitor F·2 G·0
+22:34:59.225990 db@open done T·5.177452ms
+23:44:29.232972 memdb@flush N·30829 S·3MiB
+23:44:29.265407 memdb@flush created L0@3 N·30829 S·877KiB "n:\x00..ail,v8900":"version,v1"
+23:44:29.265483 version@stat F·[1] S·877KiB[877KiB] Sc·[0.25]
+23:44:29.268998 memdb@flush committed F·1 T·35.924406ms
+23:44:29.270231 journal@remove removed @1
