@@ -68,14 +68,14 @@
  
    ![img6](./ejercicio1/images/mining1.png)
 
->    miner.stop()
->    eth.getBalance("0x7b9c7564a0a67b21908a8f52a0a22f1cf193d736").
+>      miner.stop()
+>	eth.getBalance("0x7b9c7564a0a67b21908a8f52a0a22f1cf193d736").
+     
+   ![img7](./ejercicio1/images/balance_after_mining.png)
+   
 ~~~ 
 El balance de la cuenta tras el minado es 185 ETH
 ~~~
-
-     
-   ![img7](./ejercicio1/images/balance_after_mining.png)
 
 ####  8. Convertimos el balance de wei a ETH 
 >     web3.fromWei(web3.eth.getBalance(web3.eth.accounts[0]).toNumber()) 
