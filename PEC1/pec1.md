@@ -13,6 +13,8 @@
    ![img1](./ejercicio1/images/account1.png)
 
 ####  3. Creamos el fichero genesis.json e incluimos nuestra cuenta recién creada, inicializándola con un balance = 0.
+
+![genesis.json](./ejercicio1/genesis.json)
 >
 	{
 	    "config": {
@@ -34,7 +36,6 @@
 	    "timestamp"  : "0x00"
 	}
 	
-![json](./ejercicio1/genesis.json)
 
 ####  4. Instanciamos el nodo de nuestra blockchain e iniciamos la sincronización:
        
