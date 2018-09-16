@@ -9,7 +9,7 @@
 
 ####  2. Creamos una cuenta mediante el cliente Geth
 >     geth --datadir node1 account new
-
+``
    ![img1](./ejercicio1/images/account1.png)
 
 ####  3. Creamos el fichero genesis.json e incluimos nuestra cuenta recién creada, inicializándola con un balance = 0.
@@ -33,6 +33,8 @@
 	    "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
 	    "timestamp"  : "0x00"
 	}
+	
+	   ![json](./ejercicio1/images/account1.png)
 
 ####  4. Instanciamos el nodo de nuestra blockchain e iniciamos la sincronización:
        
