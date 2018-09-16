@@ -69,7 +69,7 @@
    ![img6](./ejercicio1/images/mining1.png)
 
 >      miner.stop()
-> >	eth.getBalance("0x7b9c7564a0a67b21908a8f52a0a22f1cf193d736").
+	eth.getBalance("0x7b9c7564a0a67b21908a8f52a0a22f1cf193d736").
      
    ![img7](./ejercicio1/images/balance_after_mining.png)
    
