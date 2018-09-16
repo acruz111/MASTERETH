@@ -37,10 +37,10 @@
 ####  4. Instanciamos el nodo de nuestra blockchain e iniciamos la sincronización:
        
 >       geth --identity node1 init genesis.json --datadir node1
-       ![img2](./ejercicio1/images/instancia1.png)
+    ![img2](./ejercicio1/images/instancia1.png)
 
 >      geth --datadir node1 --networkid 1 --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --port 30300
-       ![img3](./ejercicio1/images/synchro1.png)
+    ![img3](./ejercicio1/images/synchro1.png)
 
 
 
@@ -48,26 +48,27 @@
 
 ####  5. Nos conectamos al nodo 1 
 >       geth attach ./node1/geth.ipc
-        ![img4](./ejercicio1/images/connect_node1.png)
+    ![img4](./ejercicio1/images/connect_node1.png)
 
   
 ####  6. Comprobamos el balance de la cuenta antes de iniciar  el minado 
 >      eth.accounts[0] 
 >      eth.getBalance("0x7b9c7564a0a67b21908a8f52a0a22f1cf193d736")
-       ![img5](./ejercicio1/images/balance_before_mining.png)
+    ![img5](./ejercicio1/images/balance_before_mining.png)
 
 ####  7. Iniciamos el minado y comprobamos el balance de la cuenta tras unos minutos
->     miner.start(1)
-      ![img6](./ejercicio1/images/mining1.png)
+>      miner.start(1)
+   ![img6](./ejercicio1/images/mining1.png)
 
 >    miner.stop()
-     eth.getBalance("0x7b9c7564a0a67b21908a8f52a0a22f1cf193d736") -> El balance de la cuenta tras el minado es 185 ETH
+     eth.getBalance("0x7b9c7564a0a67b21908a8f52a0a22f1cf193d736").
+     El balance de la cuenta tras el minado es 185 ETH
      
-     ![img7](./ejercicio1/images/balance_after_mining.png)
+   ![img7](./ejercicio1/images/balance_after_mining.png)
 
 ####  8. Convertimos el balance de wei a ETH 
 >     web3.fromWei(web3.eth.getBalance(web3.eth.accounts[0]).toNumber()) 
-     ![img8](./ejercicio1/images/weitoeth.png)
+   ![img8](./ejercicio1/images/weitoeth.png)
       
 
 
