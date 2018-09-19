@@ -112,8 +112,9 @@ curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","metho
 
    ![img4](./ejercicio2/images/curl_genesis.png)
 
-> Podemos obtener la misma información con el método eth_getBlockByNumber:
+>	Podemos obtener la misma información con el método eth_getBlockByNumber:
 curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x0", true],"id":1}' http://127.0.0.1:8545
+
 >	admin.stopRPC()
 
    ![img5](./ejercicio2/images/curl_genesis2.png)
