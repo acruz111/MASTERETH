@@ -156,7 +156,7 @@ mediante el valor del head: "0x3e9cb6b5bb3bd2c818a590229dfdbd23387558c51665b4aa0
 
 https://rinkeby.etherscan.io/block/0x3e9cb6b5bb3bd2c818a590229dfdbd23387558c51665b4aa0d0c82e9a1bacdf0
 ~~~
-**Height: 3017748**
+>	**Height: 3017748**
   
  ![img9](./ejercicio2/images/head1.png)
 
@@ -166,7 +166,7 @@ mediante el valor del head: "0x65de39381bbaddc013d7b32d12e6abdce9eedc5768baf87ea
 
 https://rinkeby.etherscan.io/block/0x65de39381bbaddc013d7b32d12e6abdce9eedc5768baf87ea9442ff71c56f392
 ~~~
-**Height: 3017766**
+>	**Height: 3017766**
   
  ![img10](./ejercicio2/images/head2.png)
 
