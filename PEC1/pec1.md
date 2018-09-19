@@ -101,10 +101,8 @@ El balance de la cuenta tras el minado es 185 ETH
 ~~~
 Hash del bloque genesis: "0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177"
 ~~~	
-
    ![img3](./ejercicio2/images/node_info.png)
-      
-
+    
 ####  4.Utilizamos JSON RPC API para obtener información sobre el bloque genesis
 >     admin.startRPC("127.0.0.1", 8545)
 >	Obtenemos información sobre el bloque 0 llamando al método eth_getBlockByHash: 
@@ -112,8 +110,8 @@ curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","metho
 
    ![img4](./ejercicio2/images/curl_genesis.png)
 
-> Podemos obtener la misma información con el método: eth_getBlockByNumber
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x0", true],"id":1}' http://127.0.0.1:8545
+> Podemos obtener la misma información con el método eth_getBlockByNumber:
+>	curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x0", true],"id":1}' http://127.0.0.1:8545
 >	admin.stopRPC()
 
    ![img5](./ejercicio2/images/curl_genesis2.png)
