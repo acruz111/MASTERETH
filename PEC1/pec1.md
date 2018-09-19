@@ -107,18 +107,21 @@ Hash del bloque genesis: "0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa
     
 ####  4.Utilizamos JSON RPC API para obtener información sobre el bloque genesis
 >     admin.startRPC("127.0.0.1", 8545)
->	Obtenemos información sobre el bloque 0 llamando al método eth_getBlockByHash: 
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177", true],"id":1}' http://127.0.0.1:8545
+~~~
+Obtenemos información sobre el bloque 0 llamando al método eth_getBlockByHash:
+~~~
+>	curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByHash","params":["0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177", true],"id":1}' http://127.0.0.1:8545
 
    ![img4](./ejercicio2/images/curl_genesis.png)
 
->	Podemos obtener la misma información con el método eth_getBlockByNumber:
-curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x0", true],"id":1}' http://127.0.0.1:8545
+~~~
+Podemos obtener la misma información con el método eth_getBlockByNumber:
+~~~
+>	curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x0", true],"id":1}' http://127.0.0.1:8545
 
 >	admin.stopRPC()
 
    ![img5](./ejercicio2/images/curl_genesis2.png)
-
 
 ~~~
 Las llamadas a eth_getBlockByNumber y eth_getBlockByHash devuelven el mismo resultado que eth.getBlock(0).
