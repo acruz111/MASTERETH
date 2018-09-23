@@ -48,7 +48,7 @@ También podemos obtener los OPCODES mediante EVM
 
 ![evmStorage.opcode](./outputDirectory/evmStorage.opcode)
    
->
+~~~
 608060405234801561001057600080fd5b5060d08061001f6000396000f3fe60806040526004361060485763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166360fe47b18114604d5780636d4ce63c146075575b600080fd5b348015605857600080fd5b50607360048036036020811015606d57600080fd5b50356099565b005b348015608057600080fd5b506087609e565b60408051918252519081900360200190f35b600055565b6000549056fea165627a7a723058203df6ac8f124c635f3800e868a352cbdca8eb89601f7e5d8fcf29b54b4b6721880029
 000000: PUSH1 0x80
 000002: PUSH1 0x40
@@ -182,7 +182,7 @@ También podemos obtener los OPCODES mediante EVM
 000210: Missing opcode 0x4c
 000211: PUSH4 0x5f3800e8
 000216: PUSH9 0xa352cbdca8eb89601f
-
+~~~
 
 ### Identificadores de las funciones que existan dentro del contrato inteligente. 
 
@@ -191,9 +191,10 @@ También podemos obtener los OPCODES mediante EVM
    
 ![Storage.signatures](./outputDirectory/Storage.signatures)
 
->
+~~~
 6d4ce63c: get()
 60fe47b1: set(uint256)
+~~~
 
 ### Estimación del gas utilizado por cada función. 
 
