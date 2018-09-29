@@ -6,7 +6,7 @@
 
 ####  1. Clonar el proyecto de una DApp
 
->  git clone https://github.com/christinto/ChrisPerry_FinalProject_Consensys.git
+>  Download DApp from: https://github.com/christinto/ChrisPerry_FinalProject_Consensys/archive/master.zip
 
 ####  2. Modifico index.html
 
