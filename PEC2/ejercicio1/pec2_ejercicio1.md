@@ -6,7 +6,7 @@
 ####  1. Tenemos un nodo completamente sincronizado con la red Rinkeby y habilitada la consola
 
 >  geth --syncmode "fast" --rinkeby
->  geth --datadir=$HOME/.ethereum/rinkeby attach ipc:$HOME/.ethereum/rinkeby/geth.ipc console
+>>  geth --datadir=$HOME/.ethereum/rinkeby attach ipc:$HOME/.ethereum/rinkeby/geth.ipc console
 
 ####  2. Importamos ensutils-testnet.js al nodo
 

@@ -84,9 +84,8 @@ QmUxfK9MgusMPHPMLvfxjrJzpV1ZLxuWgHD82pspjTMucp
  
    ![img9](./images/hashpublished.png)
 
-####  7. Desde un browser accedemos a la DApp 
+####  7. Desde un browser accedemos a la DApp en localhost
 
-Podemos acceder desde localhost
 > localhost:8080/ipns/QmbYS5pyLcRsDouzJtiD89Dfn4vwGdBBrznC6D35sfdwJm/ 
 
    ![img10](./images/browser1.png)
@@ -100,5 +99,11 @@ Podemos acceder desde localhost
 ####  9. Consultamos el alta
 
    ![img13](./images/busqueda.png)
+
+####  10. Desde un browser accedemos a la DApp a través del gateway
+
+> https://gateway.ipfs.io/ipns/QmbYS5pyLcRsDouzJtiD89Dfn4vwGdBBrznC6D35sfdwJm/
+
+   ![img14](./images/browser2.png)
 
 
