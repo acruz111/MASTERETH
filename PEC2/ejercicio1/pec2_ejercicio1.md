@@ -67,7 +67,7 @@
     publicResolver.setAddr(namehash("antoniodomain3.test"), eth.coinbase, {from: eth.coinbase})  
    ~~~
 
-   ![img6](./images/setAddressToResolve.png)
+   ![img6](./images/setAddressToResolve1.png)
        
 
 ####  5. Demostramos que somos poseedores del dominio adquirido y obtenemos la dirección del Resolver utilizado
