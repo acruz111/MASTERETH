@@ -35,7 +35,7 @@
    ~~~
    La fecha que obtenemos es anterior a la fecha actual por lo que el nombre no está registrado y podemos continuar.
 
-   ![img2](./images/checkNameExistance.png)
+   ![img2](./images/checkNameExistance1.png)
 
 
    - Realizamos la transacción para registrar 'antoniodomain3'. 
@@ -50,7 +50,7 @@
    ~~~
    testRegistrar.register(web3.sha3('antoniodomain3'), eth.coinbase, {from: eth.coinbase})
    ~~~
-   ![img4](./images/contractRegistrar.png)
+   ![img4](./images/contractRegistrar1.png)
 	
 
 ####  4. Establecemos Resolver contract
@@ -77,14 +77,14 @@
    ens.owner(namehash('antoniodomain3.test'))
    ~~~
   
-   ![img7](./images/domainOwner.png)
+   ![img7](./images/domainOwner1.png)
 
    - Obtenemos la dirección del Resolver utilizado. Como vemos corresponde con la dirección del public Resolver
    ~~~
    ens.resolver(namehash('antoniodomain3.test'))
    ~~~
   
-   ![img8](./images/resolverAddress.png)
+   ![img8](./images/resolverAddress1.png)
 
    - Mostramos la cuenta asociada al dominio (Como vemos coincide con nuestra cuenta coinbase)
    ~~~
