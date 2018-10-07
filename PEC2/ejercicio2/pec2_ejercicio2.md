@@ -43,13 +43,13 @@
 
 > ipfs swarm peers 
 
-   ![img4](./images/peers.png)
+   ![img4](./images/peers1.png)
 
 ####  3. Consultamos el id de nuestro nodo
 
 > ipfs id
 
-   ![img5](./images/nodeid.png)
+   ![img5](./images/id1.png)
 
 ####  4. Copiamos los ficheros del frontend a una única carpeta de distribucion (/dist)
 > mkdir dist
@@ -60,7 +60,7 @@
 ~~~
 Necesitamos también los ficheros .json de los contratos (Tenemos las ABI y también información sobre la red donde se han desplegado los contratos)
 ~~~
-   ![img6](./images/distContent.png)
+   ![img6](./images/distContent1.png)
 
 ####  5. Añadimos la carpeta dist a IPFS
 
