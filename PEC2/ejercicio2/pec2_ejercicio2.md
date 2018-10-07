@@ -27,7 +27,7 @@
 > - truffle compile
 > - truffle migrate --reset
 
-   ![img2](./images/migrate.png)
+   ![img2](./images/migrate1.png)
 
 ####  3. Conectamos MetaMask a rinkeby
 
