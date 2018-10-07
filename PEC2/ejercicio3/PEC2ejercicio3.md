@@ -85,5 +85,4 @@ El hash obtenido es:
 
 ####  8. Damos de alta un nuevo vehículo
 
-   ![img9](./images/alta1.png)
-   ![img10](./images/altafin.png)
+   ![img9](./images/altafin.png)
