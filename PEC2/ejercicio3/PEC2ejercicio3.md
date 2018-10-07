@@ -27,7 +27,7 @@
 > - truffle compile
 > - truffle migrate --reset
 
-   ![img2](./images/migrate.png)
+   ![img2](./images/migrate1.png)
 
 ####  3. Conectamos MetaMask a rinkeby
 
@@ -48,7 +48,7 @@
 ~~~
 Necesitamos también los ficheros .json de los contratos (Tenemos las ABI y también información sobre la red donde se han desplegado los contratos)
 ~~~
-   ![img4](./images/distContent.png)
+   ![img4](./images/distContent1.png)
 
 ####  5. Subimos la carpeta dist a Swarm
 
