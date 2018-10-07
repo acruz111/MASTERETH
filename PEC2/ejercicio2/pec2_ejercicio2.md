@@ -15,25 +15,21 @@
 
 ###  Configurar el entorno
 
-####  1. Iniciamos Ganache Blockchain
+####  1. Tenemos un nodo completamente sincronizado con la red Rinkeby, habilitada la consola
 
-> ganache-cli
-
-   ![img2](./images/ganache.png)
+> -   geth --syncmode "fast" --rinkeby
+> -   geth --datadir=$HOME/.ethereum/rinkeby attach ipc:$HOME/.ethereum/rinkeby/geth.ipc console
+> -   admin.startRPC("127.0.0.1", 8545)
+> -   personal.unlockAccount(eth.coinbase, null, 15000)
 
 ####  2. Compilamos y migramos los smart contracts
 
-> truffle compile
-> truffle migrate
+> - truffle compile
+> - truffle migrate --reset
 
-   ![img3](./images/migrate.png)
+   ![img2](./images/migrate.png)
 
-####  3. Conectamos MetaMask a ganache-cli
-
-  ~~~
-   Conectamos MetaMask a ganache-cli en el puerto 8545
-  ~~~
-	
+####  3. Conectamos MetaMask a rinkeby
 
 ###  Arrancar un Daemon de IPFS y alojar la DApp
     
@@ -41,19 +37,19 @@
 
 > ipfs daemon
   
-   ![img4](./images/ipfsDaemon.png)
+   ![img3](./images/ipfsDaemon.png)
 
 ####  2. Desde otro terminal comprobamos los nodos a los que estamos  conectados
 
 > ipfs swarm peers 
 
-   ![img5](./images/peers.png)
+   ![img4](./images/peers.png)
 
 ####  3. Consultamos el id de nuestro nodo
 
 > ipfs id
 
-   ![img6](./images/nodeid.png)
+   ![img5](./images/nodeid.png)
 
 ####  4. Copiamos los ficheros del frontend a una única carpeta de distribucion (/dist)
 > mkdir dist
@@ -64,46 +60,41 @@
 ~~~
 Necesitamos también los ficheros .json de los contratos (Tenemos las ABI y también información sobre la red donde se han desplegado los contratos)
 ~~~
-   ![img7](./images/distContent.png)
+   ![img6](./images/distContent.png)
 
 ####  5. Añadimos la carpeta dist a IPFS
 
 > ipfs add -r dist/
 
 ~~~
-El último hash es el que nos interesa para publicar en IPFS:
-QmUxfK9MgusMPHPMLvfxjrJzpV1ZLxuWgHD82pspjTMucp
+El último hash es el que nos interesa para añadir a IPFS:
+QmUvWQ7d2MjB5anZrmtQoPyCpNtV8t7F3zcWmAt8raiiC7
 ~~~
-  
-   ![img8](./images/hashdist.png)
 
+   ![img7](./images/hashdist.png)
 
-####  6. Publicamos el contenido en IPFS
+####  6. Desde un browser accedemos a la DApp en localhost
 
-> ipfs name publish QmUxfK9MgusMPHPMLvfxjrJzpV1ZLxuWgHD82pspjTMucp 
- 
-   ![img9](./images/hashpublished.png)
+> http://localhost:8080/ipfs/QmUvWQ7d2MjB5anZrmtQoPyCpNtV8t7F3zcWmAt8raiiC7/ 
 
-####  7. Desde un browser accedemos a la DApp en localhost
+   ![img8](./images/browser1.png)
 
-> localhost:8080/ipns/QmbYS5pyLcRsDouzJtiD89Dfn4vwGdBBrznC6D35sfdwJm/ 
+####  7. Damos de alta un nuevo vehículo
 
-   ![img10](./images/browser1.png)
+   ![img9](./images/alta1.png)
+   ![img10](./images/altatransaction.png)
+   ![img11](./images/altafin.png)
 
-####  8. Damos de alta un nuevo vehículo
+####  8. Publicamos el contenido
 
-   ![img11](./images/alta1.png)
-   ![img12](./images/alta1fin.png)
+> ipfs name publish QmUvWQ7d2MjB5anZrmtQoPyCpNtV8t7F3zcWmAt8raiiC7
 
+   ![img12](./images/hashpublished.png)
 
-####  9. Consultamos el alta
-
-   ![img13](./images/busqueda.png)
-
-####  10. Desde un browser accedemos a la DApp a través del gateway
+####  9. Desde un browser accedemos a la DApp a través del gateway
 
 > https://gateway.ipfs.io/ipns/QmbYS5pyLcRsDouzJtiD89Dfn4vwGdBBrznC6D35sfdwJm/
 
-   ![img14](./images/browser2.png)
+   ![img13](./images/browser2.png)
 
 
