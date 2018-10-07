@@ -52,10 +52,10 @@
    ![img5](./images/id1.png)
 
 ####  4. Copiamos los ficheros del frontend a una única carpeta de distribucion (/dist)
-> mkdir dist
-> rsync -r src/ dist/
-> rsync -r build/contracts/ dist/ 
-> ls -l dist/
+> - mkdir dist
+> - rsync -r src/ dist/
+> - rsync -r build/contracts/ dist/ 
+> - ls -l dist/
 
 ~~~
 Necesitamos también los ficheros .json de los contratos (Tenemos las ABI y también información sobre la red donde se han desplegado los contratos)
