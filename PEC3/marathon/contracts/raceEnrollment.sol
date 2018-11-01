@@ -1,19 +1,14 @@
 pragma solidity ^0.4.24;
-contract raceEnrollment {
+
+import "./Ownable.sol";
+
+contract raceEnrollment is Ownable {
 
     //Balance of the race's owner
     mapping (address => uint) private balances;
 
-    //Set the owner
-    address public owner;
-
     // Events - publicize actions to external listeners
     event logEnrollment(uint balanceOwner, address addressRunner);
-
-    // Constructor - Set the owner to the creator of this contract
-    constructor() public{
-        owner = msg.sender; 
-    }
 
     /// @notice Enroll runner in the race
     /// @return The balance of the funds collected during the enrollment (Balance of the race's owner)
@@ -34,9 +29,12 @@ contract raceEnrollment {
     }
 
 
-    /// @notice Pay price to the winner
+    /// @notice Only the Owner of the Race canPay price to the winner
     /// @param  winner address to pay for the price
-    function payPrice(address winner) public {
+    function payPrice(address winner) 
+    public 
+    onlyOwner
+    {
            uint amountPrice = balances[owner];
            balances[owner] = 0;
            winner.transfer(amountPrice);

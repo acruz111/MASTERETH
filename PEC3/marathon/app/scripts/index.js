@@ -70,6 +70,24 @@ var account
     });
   },
 
+  payPrice: function () {
+    var self = this;
+    var addressWinner = document.getElementById("addressOfTheWinner").value;
+
+    raceEnrollment.deployed().then(function (contractInstance) {
+      
+      contractInstance.payPrice(addressWinner, { from: account }).then(function (v) {
+        self.setStatus("Price payed!");
+
+      }).catch(function (e) {
+        console.log(e);
+        self.setStatus("Error paying price to the winner");
+      
+      });
+      
+    });
+  },
+
   refreshAddress: function () {
     var self = this;
 
