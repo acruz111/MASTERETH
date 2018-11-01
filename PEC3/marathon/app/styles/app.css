@@ -1,7 +1,7 @@
 body {
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -29,14 +29,14 @@ h1, h2 {
 }
 
 h2 {
-  color: #AAA;
-  font-size: 32px;
+  color: rgb(81, 131, 197);
+  font-size: 24px;
 }
 
 h3 {
   font-weight: normal;
   color: #AAA;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .black {
