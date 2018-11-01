@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MARATHON RUNNERS 111</title>
+  <title>MARATHON</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <script src="./app.js"></script>
 </head>
 <body>
-  <h1>MARATHON RUNNERS 111 </h1>
-  <h3>Address of the Runner enrolled <span class="black"><span id="addressRunnerEnrolled"></span></span></h3>
-
+  <h1>MARATHON RACE</h1>
   <br>
-  <h1>Enroll Runner</h1>
-  <br><label for="addressToEnrollLabel">Address of the Runner:</label><input type="text" id="addressToEnroll" placeholder="e.g., 0xEcC9f5E79de5F1A63375A7959611594c6484ef52"></input>
+  <h2>Money collected</h2>
+  <br><label>Total amount: </label><span id="totalAmount"></span>
+  <br>
+  <h2>Enroll Runner</h2>
+  <br><label>Address of the Runner: </label><span id="addressOfTheRunner"></span>
   <br><br><button id="buttonEnroll" onclick="App.enrollRunner()">Enroll</button>
   <br><br>
   <span id="status"></span>
   <br>
-  <span class="hint"><strong>Hint:</strong> open the browser developer console to view any errors and warnings.</span>
+  <span class="hint"><strong>Hint:</strong> Open the browser developer console to view any errors and warnings.</span>
 </body>
 </html>

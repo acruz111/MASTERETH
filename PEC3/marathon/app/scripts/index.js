@@ -26,60 +26,68 @@ var account
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function (err, accs) {
       if (err != null) {
-        alert('There was an error fetching your accounts.')
-        return
+        alert('There was an error fetching your accounts.');
+        return;
       }
 
       if (accs.length === 0) {
-        alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.")
-        return
+        alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
+        return;
       }
 
-      accounts = accs
-      account = accounts[0]
+      accounts = accs;
+      account = accounts[0];
 
-      self.refreshAddress()
+      self.refreshAddress();
     })
   },
 
   enrollRunner: function () {
     var self = this;
+    self.refreshAddress();
 
     raceEnrollment.deployed().then(function (contractInstance) {
-      contractInstance.enrollRunner({from: account })}).then(function (v) {
-        for (var i = 0; i < v.logs.length; i++) {
-          var log = v.logs[i];
-          if (log.event == "logEnrollment") {
-            document.getElementById('addressToEnroll').innerHTML = log.args.accountAddress;
-            self.setStatus('addressToEnroll', "Runner has been enrolled successfully.");
-            break;
-          }
-        }
+      
+      contractInstance.enrollRunner({ from: account }).then(function (v) {
+        self.setStatus("Runner enrolled!");
 
-    }).catch(function (e) {
-      console.log(e)
-      self.setStatus('Error enrolling runner; see log.')
-    }) 
+      }).catch(function (e) {
+        console.log(e);
+        self.setStatus("Error enrolling runner");
+      
+      });
+
+      var LogEnrollment = contractInstance.logEnrollment({});
+      LogEnrollment.watch(function (err, result) {
+        if (!err) {
+          document.getElementById("totalAmount").innerHTML = web3.fromWei((result.args.balanceOwner).valueOf(), 'ether'); ;
+          // document.getElementById("addressOfTheRunner").innerHTML = result.args.addressRunner;
+        } else {
+          console.error(err);
+        }
+      })
+      
+    });
   },
+
   refreshAddress: function () {
     var self = this;
 
     raceEnrollment.deployed().then(function (contractInstance) {
-      contractInstance.getAddressRunner({ from: account }).then(function (v) {
-        document.getElementById('addressToEnroll').innerHTML = "Your contract address is: " + v[1];
-        document.getElementById('addressToEnroll').innerHTML = "Your contract address is: " + v.valueOf();
+      return contractInstance.getAddressRunner({ from: account }).then(function (v) {
+        document.getElementById("addressOfTheRunner").innerHTML = v.valueOf();
 
       }).catch(function (e) {
-        console.log(e)
-        self.setStatus('Error getting address; see log.')
+        console.log(e);
+        self.setStatus("Error getting address; see log.");
       
       });
     });
   },
 
   setStatus: function (message) {
-    const status = document.getElementById('status')
-    status.innerHTML = message
+    const status = document.getElementById("status");
+    status.innerHTML = message;
   },
     
 }

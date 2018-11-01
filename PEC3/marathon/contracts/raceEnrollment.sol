@@ -8,7 +8,7 @@ contract raceEnrollment {
     address public owner;
 
     // Events - publicize actions to external listeners
-    event logEnrollment(uint balanceOwner, address accountAddress);
+    event logEnrollment(uint balanceOwner, address addressRunner);
 
     // Constructor - Set the owner to the creator of this contract
     constructor() public{
