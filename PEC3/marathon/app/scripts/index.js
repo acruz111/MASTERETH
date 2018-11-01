@@ -18,6 +18,7 @@ var account
 
  const App = {
   start: function () {
+    window.focus();
     var self = this
 
     // Bootstrap the raceEnrollment abstraction for Use.
@@ -136,5 +137,18 @@ window.addEventListener('load', function () {
     window.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:8545'))
   }
 
-  App.start()
+  App.start();
 })
+
+// Refresh the DApp content when the user change from tab to tab (MetaMask opened in a different tab of the browser)
+document.addEventListener('visibilitychange', function(e) {
+  if(!document.hidden){
+    window.location.reload(true);
+    console.log("User clicked back on DApp tab");  
+  }
+});
+
+// Refresh the DApp when clicking in any page of the screen ((MetaMask opened in a the same tab of the browser))
+document.addEventListener('click', function(e) {
+    window.location.reload(true);
+});
