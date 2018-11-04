@@ -45,11 +45,12 @@ var account
 
   enrollRunner: function () {
     var self = this;
+    var amount = parseInt(document.getElementById("amount").value);
     self.refreshAddress();
 
     raceEnrollment.deployed().then(function (contractInstance) {
       
-      contractInstance.enrollRunner({ from: account }).then(function (v) {
+      contractInstance.enrollRunner({from: account }).then(function (v) {
         self.setStatus("Runner enrolled!");
 
       }).catch(function (e) {
@@ -98,7 +99,7 @@ var account
 
       }).catch(function (e) {
         console.log(e);
-        self.setStatus("Error getting address; see log.");
+        self.setStatus("Error getting address");
       
       });
     });
@@ -140,7 +141,7 @@ window.addEventListener('load', function () {
   App.start();
 })
 
-// Refresh the DApp content when the user change from tab to tab (MetaMask opened in a different tab of the browser)
+// Refresh the page content when the user change from tab to tab (MetaMask opened in a different tab of the browser)
 document.addEventListener('visibilitychange', function(e) {
   if(!document.hidden){
     window.location.reload(true);
@@ -148,7 +149,7 @@ document.addEventListener('visibilitychange', function(e) {
   }
 });
 
-// Refresh the DApp when clicking in any page of the screen ((MetaMask opened in a the same tab of the browser))
+// Refresh the page content when clicking on any page of the screen ((MetaMask opened in the same tab of the browser))
 document.addEventListener('click', function(e) {
     window.location.reload(true);
 });

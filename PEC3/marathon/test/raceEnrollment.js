@@ -1,10 +1,22 @@
-var MetaCoin = artifacts.require('./MetaCoin.sol')
+//var incluir SafeMaths librerias
+var raceEnrollment = artifacts.require('./raceEnrollment.sol')
 
-contract('MetaCoin', function (accounts) {
+contract('raceEnrollment', function (accounts) {
+  context("Possible attacks", function (){
+
+      it("Reentrance attack", function(){
+          return raceEnrollment.deployed().then(function(instance){
+
+          })
+      })
+  })
+
+
+
   it('should put 10000 MetaCoin in the first account', function () {
     return MetaCoin.deployed().then(function (instance) {
-      return instance.getBalance.call(accounts[0])
-    }).then(function (balance) {
+      return instance.getBalance.call(accounts[0]) // obtenemos el balance de account 0 // llamada a funcion asincrona
+    }).then(function (balance) { // .then -> esperamos la respuesta de la funcion asincrona, el balance obtenido en la llamada de la funcion anterior lo volcamos en la variable 'balance'
       assert.equal(balance.valueOf(), 10000, "10000 wasn't in the first account")
     })
   })
