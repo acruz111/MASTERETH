@@ -45,12 +45,16 @@ var account
 
   enrollRunner: function () {
     var self = this;
+    
     var amount = parseInt(document.getElementById("amount").value);
-    self.refreshAddress();
+    var name = document.getElementById("name").value;
+    //var surname = parseString(document.getElementById("surName").value);
+    //var age = parseInt(document.getElementById("age").value);
+    //var dni = document.getElementById("dni").value;
 
     raceEnrollment.deployed().then(function (contractInstance) {
       
-      contractInstance.enrollRunner({from: account }).then(function (v) {
+      contractInstance.enrollRunner(name, {from: account, value: web3.toWei(amount, "ether"), gas: 50000 }).then(function (v) {
         self.setStatus("Runner enrolled!");
 
       }).catch(function (e) {
@@ -141,6 +145,7 @@ window.addEventListener('load', function () {
   App.start();
 })
 
+
 // Refresh the page content when the user change from tab to tab (MetaMask opened in a different tab of the browser)
 document.addEventListener('visibilitychange', function(e) {
   if(!document.hidden){
@@ -149,7 +154,4 @@ document.addEventListener('visibilitychange', function(e) {
   }
 });
 
-// Refresh the page content when clicking on any page of the screen ((MetaMask opened in the same tab of the browser))
-document.addEventListener('click', function(e) {
-    window.location.reload(true);
-});
+

@@ -8,11 +8,16 @@ import "./Ownable.sol";
 /**
  * Import Enrollment Library
  */
-//import "./EnrollmentLib.sol";
+import "./EnrollmentLib.sol";
 
 contract raceEnrollment is Ownable {
-    
-    uint256 feeRace = 5;
+
+    uint feeRace = 5 ether;
+
+    enum State {
+        Enrolled,
+        NotEnrolled
+    }
 
     struct Runner {
         address addressRunner;
@@ -21,6 +26,7 @@ contract raceEnrollment is Ownable {
         string age;
         string dni;
         uint   raceTime;
+        State  status;
     }
 
     //Look for runners enrolled by address
@@ -36,8 +42,9 @@ contract raceEnrollment is Ownable {
     /// @notice Enroll runner in the race
     /// @return The balance of the funds collected during the enrollment (Balance of the race's owner)
     /// @return The address of the enrolled runner
-    function enrollRunner() public payable {
-//      require(EnrollmentLib.isValidFee(amount, feeRace));
+    function enrollRunner(string _name) public payable {     
+      require(EnrollmentLib.isValidFee(msg.value, feeRace));
+      runnersByAdress[msg.sender].name = _name;
       balances[owner] += msg.value;
       emit logEnrollment(balances[owner], msg.sender); //Front catches this event
     }

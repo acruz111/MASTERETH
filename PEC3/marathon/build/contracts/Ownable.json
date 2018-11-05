@@ -139,7 +139,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 191,
+                        "referencedDeclaration": 225,
                         "src": "120:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -251,10 +251,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        194,
-                        195
+                        228,
+                        229
                       ],
-                      "referencedDeclaration": 194,
+                      "referencedDeclaration": 228,
                       "src": "174:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -325,7 +325,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 191,
+                        "referencedDeclaration": 225,
                         "src": "278:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -532,7 +532,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 191,
+                        "referencedDeclaration": 225,
                         "src": "120:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -644,10 +644,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        194,
-                        195
+                        228,
+                        229
                       ],
-                      "referencedDeclaration": 194,
+                      "referencedDeclaration": 228,
                       "src": "174:7:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -718,7 +718,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 191,
+                        "referencedDeclaration": 225,
                         "src": "278:3:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -898,8 +898,32 @@
       "links": {},
       "address": "0x9934221d56052d074d386f514e53b6754a74b406",
       "transactionHash": "0x13a482c9f975e6b7fdeab098d08bf3ab8babbf01e6d38a4e9b711650a7d9a136"
+    },
+    "1541445039580": {
+      "events": {},
+      "links": {},
+      "address": "0xeff241b34a2ca2caa6a7ba7a789394fe2cd80c70",
+      "transactionHash": "0x13a482c9f975e6b7fdeab098d08bf3ab8babbf01e6d38a4e9b711650a7d9a136"
+    },
+    "1541445359667": {
+      "events": {},
+      "links": {},
+      "address": "0xef0a278d9bac8797d25ad84f57dc7c7b566b64ca",
+      "transactionHash": "0x13a482c9f975e6b7fdeab098d08bf3ab8babbf01e6d38a4e9b711650a7d9a136"
+    },
+    "1541449960152": {
+      "events": {},
+      "links": {},
+      "address": "0x0da515fbd5e79b63ebd9919c2d791a7275c2bf39",
+      "transactionHash": "0x13a482c9f975e6b7fdeab098d08bf3ab8babbf01e6d38a4e9b711650a7d9a136"
+    },
+    "1541453743523": {
+      "events": {},
+      "links": {},
+      "address": "0xc4c95c4513cbac9ce49b9cc4f248eba40ff0dd90",
+      "transactionHash": "0x13a482c9f975e6b7fdeab098d08bf3ab8babbf01e6d38a4e9b711650a7d9a136"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-04T09:22:14.054Z"
+  "updatedAt": "2018-11-05T21:36:42.218Z"
 }
