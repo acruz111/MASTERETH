@@ -12,9 +12,10 @@ import "./EnrollmentLib.sol";
 
 contract raceEnrollment is Ownable {
 
-    uint feeRace = 5 ether;
+    uint constant FEE_RACE = 5 ether;
+    address[] public allAdresses;
 
-    enum State {
+    enum Status {
         Enrolled,
         NotEnrolled
     }
@@ -23,10 +24,10 @@ contract raceEnrollment is Ownable {
         address addressRunner;
         string name;
         string surname;
-        string age;
+        uint   age;
         string dni;
         uint   raceTime;
-        State  status;
+        Status status;
     }
 
     //Look for runners enrolled by address
@@ -40,11 +41,14 @@ contract raceEnrollment is Ownable {
     event logEnrollment(uint balanceOwner, address addressRunner);
 
     /// @notice Enroll runner in the race
-    /// @return The balance of the funds collected during the enrollment (Balance of the race's owner)
-    /// @return The address of the enrolled runner
-    function enrollRunner(string _name) public payable {     
-      require(EnrollmentLib.isValidFee(msg.value, feeRace));
-      runnersByAdress[msg.sender].name = _name;
+    function enrollRunner(string _name, string _surname, uint _age, string _dni, uint _raceTime) 
+    public 
+    payable 
+    {     
+      require(EnrollmentLib.isValidFee(msg.value, FEE_RACE));
+      allAdresses.push(msg.sender);
+      runnersByAdress[msg.sender] = Runner ({addressRunner: msg.sender, name: _name, surname: _surname, age: _age, dni: _dni,
+        raceTime: _raceTime, status: Status.Enrolled });
       balances[owner] += msg.value;
       emit logEnrollment(balances[owner], msg.sender); //Front catches this event
     }
@@ -59,6 +63,34 @@ contract raceEnrollment is Ownable {
         return balances[owner];
     }
 
+    // Get the attributes of the Runners of the marathon
+    function getAttributesRunner(address _addressRunner) public view returns (string _name, string _surname, uint _age, string _dni, uint _raceTime) {
+        
+        _name = runnersByAdress[_addressRunner].name;
+        _surname = runnersByAdress[_addressRunner].surname;
+        _age = runnersByAdress[_addressRunner].age;
+        _dni = runnersByAdress[_addressRunner].dni;
+        _raceTime = runnersByAdress[_addressRunner].raceTime;
+        
+        return (_name, _surname, _age, _dni, _raceTime);
+    }
+
+    // Get all the addresses enrolled in the race
+    function getAllAddresses() 
+    public 
+    onlyOwner
+    view 
+    returns (address[]) 
+    {
+        return allAdresses;
+    }
+
+    // Set the simulated time performed by each runner to finish the race
+    function setTimeRace(address _addressRunner, uint _raceTime) 
+    public     
+    {
+      runnersByAdress[_addressRunner].raceTime = _raceTime;
+    }
 
     /// @notice Only the Owner of the Race can pay a price to the winner
     /// @param  winner address to pay the price

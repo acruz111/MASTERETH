@@ -47,14 +47,15 @@ var account
     var self = this;
     
     var amount = parseInt(document.getElementById("amount").value);
-    var name = document.getElementById("name").value;
-    //var surname = parseString(document.getElementById("surName").value);
-    //var age = parseInt(document.getElementById("age").value);
-    //var dni = document.getElementById("dni").value;
+    var name = String(document.getElementById("name").value);
+    var surname = String(document.getElementById("surName").value);
+    var age = parseInt(document.getElementById("age").value);
+    var dni = String(document.getElementById("dni").value);
+    var raceTime = 0;
 
     raceEnrollment.deployed().then(function (contractInstance) {
       
-      contractInstance.enrollRunner(name, {from: account, value: web3.toWei(amount, "ether"), gas: 50000 }).then(function (v) {
+      contractInstance.enrollRunner(name, surname, age, dni, raceTime, {from: account, value: web3.toWei(amount, "ether"), gas: 500000 }).then(function (v) {
         self.setStatus("Runner enrolled!");
 
       }).catch(function (e) {
@@ -108,6 +109,67 @@ var account
       });
     });
   },
+
+  fetchAttributesRunner: function () {
+    var self = this;
+    var addressToFetch = document.getElementById("addressToFetch").value;
+
+    raceEnrollment.deployed().then(function (contractInstance) {
+      return contractInstance.getAttributesRunner(addressToFetch, { from: account }).then(function (v) {
+        document.getElementById("NameRunnerRetrieved").innerHTML = v[0].valueOf();
+        document.getElementById("SurNameRunnerRetrieved").innerHTML = v[1].valueOf();
+        document.getElementById("AgeRunnerRetrieved").innerHTML = v[2].valueOf();
+        document.getElementById("DNIRunnerRetrieved").innerHTML = v[3].valueOf();
+        document.getElementById("RaceTimeRunnerRetrieved").innerHTML = v[4].valueOf();
+
+        self.setStatus("Runner found!");
+
+
+      }).catch(function (e) {
+        console.log(e);
+        self.setStatus("Error getting Runner's attributes");
+      
+      });
+    });
+  },
+
+  simulateRace: function () {
+     var self = this;
+     var raceTime;
+     var maxTime = 300;
+     var minTime = 120;
+
+
+     raceEnrollment.deployed().then(function (contractInstance) {
+       return contractInstance.getAllAddresses({ from: account }).then(function (addressesResult) {
+        for (var i=0; i < addressesResult.length; i++) {
+
+          raceTime = generateRandomTime(minTime, maxTime);
+
+          contractInstance.setTimeRace(addressesResult[i], raceTime, {from: account}).then(function (v) {
+            self.setStatus("Time race saved to the runner!");
+    
+          }).catch(function (e) {
+            console.log(e);
+            self.setStatus("Error setting race time");
+          
+          });
+
+        }  
+
+
+
+       }).catch(function (e) {
+         console.log(e);
+         self.setStatus("Error simulating race");
+      
+       });
+     });
+  },
+
+  generateRandomTime: function (minTime, maxTime) {
+    return (Math.floor((Math.random() * maxTime) + 1));
+ },
 
   setStatus: function (message) {
     const status = document.getElementById("status");

@@ -1,23 +1,23 @@
 body {
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 2%;
+  margin-top: 0%;
   font-family: "Open Sans", sans-serif;
 }
 
 label {
   display: inline-block;
-  width: 100px;
+  width: 400px;
 }
 
 input {
-  width: 500px;
+  width: 400px;
   padding: 5px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 button {
-  font-size: 16px;
+  font-size: 14px;
   padding: 5px;
 }
 
@@ -25,7 +25,12 @@ h1, h2 {
   display: inline-block;
   vertical-align: middle;
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+h1 {
+  color: rgb(15, 16, 17);
+  font-size: 28px;
 }
 
 h2 {
