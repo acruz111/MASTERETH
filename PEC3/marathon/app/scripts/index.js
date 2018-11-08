@@ -68,7 +68,7 @@ var account
       LogEnrollment.watch(function (err, result) {
         if (!err) {
           document.getElementById("totalAmount").innerHTML = web3.fromWei((result.args.balanceOwner).valueOf(), 'ether'); ;
-          // document.getElementById("addressOfTheRunner").innerHTML = result.args.addressRunner;
+          document.getElementById("addressOfTheRunner2").innerHTML = result.args.addressRunner;
         } else {
           console.error(err);
         }
@@ -134,42 +134,51 @@ var account
   },
 
   simulateRace: function () {
-     var self = this;
-     var raceTime;
-     var maxTime = 300;
-     var minTime = 120;
+    var self = this;
+    var raceTime;
+    var address1;
+    var max = 300;
+    var min = 120;
+    var i = 0;
 
+    raceEnrollment.deployed().then(function (contractInstance) {
+      return contractInstance.getAllAddresses.call()
+      }).then(function (alladresses) {
+        for (i=0; i < alladresses.length; i++) {
 
-     raceEnrollment.deployed().then(function (contractInstance) {
-       return contractInstance.getAllAddresses({ from: account }).then(function (addressesResult) {
-        for (var i=0; i < addressesResult.length; i++) {
-
-          raceTime = generateRandomTime(minTime, maxTime);
-
-          contractInstance.setTimeRace(addressesResult[i], raceTime, {from: account}).then(function (v) {
-            self.setStatus("Time race saved to the runner!");
-    
-          }).catch(function (e) {
-            console.log(e);
-            self.setStatus("Error setting race time");
-          
+          raceTime = self.generateRandomTime(min, max); 
+          address1 = alladresses[i];
+ 
+          raceEnrollment.deployed().then(function (contractInstance2) {
+      
+             contractInstance2.setTimeRace(address1,raceTime, { from: account }).then(function (v) {
+      
+            }).catch(function (e) {
+              console.log(e);
+              self.setStatus("Error on Simulation");
+            
+            });
+            
           });
 
-        }  
+          var simulationDatas = contractInstance2.logSimulateTimeRace({});
+          LogEnrollment.watch(function (err, result) {
+            if (!err) {
+              document.getElementById("AddressTimeAssigned").innerHTML = result.args.addressRunner.valueOf();
+              document.getElementById("RandomTime").innerHTML = result.args.timeRace;
+            } else {
+              console.error(err);
+            }
+          })
 
-
-
-       }).catch(function (e) {
-         console.log(e);
-         self.setStatus("Error simulating race");
-      
-       });
-     });
-  },
-
-  generateRandomTime: function (minTime, maxTime) {
-    return (Math.floor((Math.random() * maxTime) + 1));
+        }
+        self.setStatus("Simulation completed!");
+      })
  },
+
+  generateRandomTime: function (min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
 
   setStatus: function (message) {
     const status = document.getElementById("status");

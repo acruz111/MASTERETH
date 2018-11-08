@@ -14,6 +14,7 @@ contract raceEnrollment is Ownable {
 
     uint constant FEE_RACE = 5 ether;
     address[] public allAdresses;
+    uint i=0;
 
     enum Status {
         Enrolled,
@@ -39,6 +40,8 @@ contract raceEnrollment is Ownable {
 
     // Events - publicize actions to external listeners
     event logEnrollment(uint balanceOwner, address addressRunner);
+    event logSimulateTimeRace(address addressRunner, uint timeRace);
+
 
     /// @notice Enroll runner in the race
     function enrollRunner(string _name, string _surname, uint _age, string _dni, uint _raceTime) 
@@ -78,7 +81,7 @@ contract raceEnrollment is Ownable {
     // Get all the addresses enrolled in the race
     function getAllAddresses() 
     public 
-    onlyOwner
+//    onlyOwner
     view 
     returns (address[]) 
     {
@@ -90,6 +93,8 @@ contract raceEnrollment is Ownable {
     public     
     {
       runnersByAdress[_addressRunner].raceTime = _raceTime;
+      emit logSimulateTimeRace(_addressRunner, _raceTime); //Front catches this event
+
     }
 
     /// @notice Only the Owner of the Race can pay a price to the winner

@@ -16,6 +16,7 @@
 
   <h2>Enroll Runner</h2>
   <br><label>Address of the Runner: </label><span id="addressOfTheRunner"></span>
+  <br><label>Address of the Runner2: </label><span id="addressOfTheRunner2"></span>
   <br><label for="amount">Enrollment Fee:</label><input type="text" id="amount" placeholder="e.g., 5"></input>
   <br><label for="name">Name:</label><input type="text" id="name" placeholder="e.g., Peter"></input>
   <br><label for="surName">Surname:</label><input type="text" id="surName" placeholder="e.g., Smith"></input>
@@ -41,8 +42,13 @@
   <h2>Simulate Race</h2>
   <br><br><button id="buttonSimulateRace" onclick="App.simulateRace()">Simulate Race</button>
   <br>
+  <br><label>Address with random time assigned: </label><span id="AddressTimeAssigned"></span>
   <br>
-  
+  <br><label>Random Time: </label><span id="RandomTime"></span>
+  <br>
+  <br>
+
+
   <h2>Pay Price to the Winner's Marathon</h2>
   <br><label for="receiver">Input Address of the Winner: </label><input type="text" id="addressOfTheWinner" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
   <br><br><button id="buttonPayPrice" onclick="App.payPrice()">Pay Price</button>
