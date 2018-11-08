@@ -139,41 +139,62 @@ var account
     var address1;
     var max = 300;
     var min = 120;
+    var keepFastest = 301;
     var i = 0;
 
     raceEnrollment.deployed().then(function (contractInstance) {
       return contractInstance.getAllAddresses.call()
       }).then(function (alladresses) {
-        for (i=0; i < alladresses.length; i++) {
+        raceEnrollment.deployed().then(function (contractInstance2) {
+
+        for (i=0; i < alladresses.length;i++) {
 
           raceTime = self.generateRandomTime(min, max); 
-          address1 = alladresses[i];
- 
-          raceEnrollment.deployed().then(function (contractInstance2) {
+          if (raceTime < keepFastest)
+          {
+            keepFastest = raceTime;
+          }
+          address1 = alladresses[i]; 
       
-             contractInstance2.setTimeRace(address1,raceTime, { from: account }).then(function (v) {
+            contractInstance2.setTimeRace(address1,raceTime, { from: account }).then(function (v) {
       
             }).catch(function (e) {
               console.log(e);
               self.setStatus("Error on Simulation");
             
             });
-            
-          });
-
-          var simulationDatas = contractInstance2.logSimulateTimeRace({});
-          LogEnrollment.watch(function (err, result) {
-            if (!err) {
-              document.getElementById("AddressTimeAssigned").innerHTML = result.args.addressRunner.valueOf();
-              document.getElementById("RandomTime").innerHTML = result.args.timeRace;
-            } else {
-              console.error(err);
-            }
-          })
-
+            var LogSimulationDatas = contractInstance2.logSimulateTimeRace({});
+            LogSimulationDatas.watch(function (err, result) {
+              if (!err) {
+                document.getElementById("AddressTimeAssigned").innerHTML = result.args.addressRunner.valueOf();
+                document.getElementById("RandomTime").innerHTML = result.args.timeRace;
+              } else {
+                console.error(err);
+              }
+            })
         }
+      });
         self.setStatus("Simulation completed!");
+        self.getWinnerAddress(keepFastest);
+
       })
+ },
+
+ getWinnerAddress: function (time) {
+  var self = this;
+
+  raceEnrollment.deployed().then(function (contractInstance) {
+    return contractInstance.getWinnerAddress(time, { from: account }).then(function (v) {
+      document.getElementById("addressOfTheWinner").innerHTML = v.valueOf();
+      self.setStatus("We have got the marathon's winner!");
+
+    }).catch(function (e) {
+      console.log(e);
+      self.setStatus("Error getting marathon' winner");
+    
+    });
+  });
+
  },
 
   generateRandomTime: function (min, max) {

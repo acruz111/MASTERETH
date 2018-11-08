@@ -97,6 +97,14 @@ contract raceEnrollment is Ownable {
 
     }
 
+    // Get the winner of the marathon (the fastest runner)
+    function getWinnerAddress(uint _fastestTime) public view returns (address) {
+        
+        address addressWinner;
+        addressWinner = runnersByRaceTime[_fastestTime].addressRunner;        
+        return (addressWinner);
+    }
+
     /// @notice Only the Owner of the Race can pay a price to the winner
     /// @param  winner address to pay the price
     function payPrice(address winner) 
