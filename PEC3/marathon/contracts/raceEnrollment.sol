@@ -1,13 +1,8 @@
 pragma solidity ^0.4.24;
 
-/**
- * Import Ownable Contract
- */
-
+// Import Ownable Contract
 import "./Ownable.sol";
-/**
- * Import Enrollment Library
- */
+// Import Enrollment Library 
 import "./EnrollmentLib.sol";
 
 contract raceEnrollment is Ownable {
@@ -47,6 +42,8 @@ contract raceEnrollment is Ownable {
     payable 
     {     
       require(EnrollmentLib.isValidFee(msg.value, FEE_RACE));
+      require(EnrollmentLib.isOver18(_age));
+
       allAdresses.push(msg.sender);
       runnersByAdress[msg.sender] = Runner ({addressRunner: msg.sender, name: _name, surname: _surname, age: _age, dni: _dni,
         raceTime: _raceTime, status: Status.Enrolled });
@@ -89,6 +86,7 @@ contract raceEnrollment is Ownable {
     // Set the simulated time performed by each runner to finish the race
     function setTimeRace(address _addressRunner, uint _raceTime) 
     public     
+    onlyOwner
     {
       runnersByAdress[_addressRunner].raceTime = _raceTime;
       emit logSimulateTimeRace(_addressRunner, _raceTime); //Front catches this event
@@ -113,5 +111,16 @@ contract raceEnrollment is Ownable {
     // otherwise, the sender's money is transferred to contract
     function () public payable{ 
         revert();
+    }
+
+    //  
+    //  @notice Destroy all data stored.
+    //  Smart contract kill function. 
+    //  
+    function destroyContract ()
+        public
+        onlyOwner
+    {
+        selfdestruct(owner);
     }
 }

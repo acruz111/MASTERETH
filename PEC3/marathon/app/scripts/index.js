@@ -68,7 +68,6 @@ var account
       LogEnrollment.watch(function (err, result) {
         if (!err) {
           document.getElementById("totalAmount").innerHTML = web3.fromWei((result.args.balanceOwner).valueOf(), 'ether'); ;
-          document.getElementById("addressOfTheRunner2").innerHTML = result.args.addressRunner;
         } else {
           console.error(err);
         }
@@ -92,6 +91,21 @@ var account
       
       });
       
+    });
+  },
+
+  getBalanceTotalEnrollments: function () {
+    var self = this;
+
+    raceEnrollment.deployed().then(function (contractInstance) {
+      return contractInstance.getBalanceTotalEnrollments({ from: account }).then(function (v) {
+        document.getElementById("totalBalance").innerHTML = web3.fromWei(v.valueOf(), 'ether');
+
+      }).catch(function (e) {
+        console.log(e);
+        self.setStatus("Error getting balance");
+      
+      });
     });
   },
 
@@ -187,8 +201,11 @@ var account
 
  getWinnerAddress: function (FastestTime, addressWinner) {
     
+    var self = this;
     document.getElementById("addressOfTheWinner").innerHTML = addressWinner;
     document.getElementById("timeOfTheWinner").innerHTML = FastestTime;
+
+    self.getBalanceTotalEnrollments();
   
  },
 
