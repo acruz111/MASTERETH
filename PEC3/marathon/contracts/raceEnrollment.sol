@@ -33,8 +33,6 @@ contract raceEnrollment is Ownable {
 
     //Look for runners enrolled by address
     mapping (address => Runner) private runnersByAdress;
-    //Look for runners by race time
-    mapping (uint => Runner) private runnersByRaceTime;
     //Balance of the race's owner
     mapping (address => uint) private balances;
 
@@ -81,7 +79,7 @@ contract raceEnrollment is Ownable {
     // Get all the addresses enrolled in the race
     function getAllAddresses() 
     public 
-//    onlyOwner
+    onlyOwner
     view 
     returns (address[]) 
     {
@@ -95,14 +93,6 @@ contract raceEnrollment is Ownable {
       runnersByAdress[_addressRunner].raceTime = _raceTime;
       emit logSimulateTimeRace(_addressRunner, _raceTime); //Front catches this event
 
-    }
-
-    // Get the winner of the marathon (the fastest runner)
-    function getWinnerAddress(uint _fastestTime) public view returns (address) {
-        
-        address addressWinner;
-        addressWinner = runnersByRaceTime[_fastestTime].addressRunner;        
-        return (addressWinner);
     }
 
     /// @notice Only the Owner of the Race can pay a price to the winner

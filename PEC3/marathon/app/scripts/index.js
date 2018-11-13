@@ -79,7 +79,7 @@ var account
 
   payPrice: function () {
     var self = this;
-    var addressWinner = document.getElementById("addressOfTheWinner").value;
+    var addressWinner = document.getElementById("addressOfTheWinnerToPay").value;
 
     raceEnrollment.deployed().then(function (contractInstance) {
       
@@ -137,6 +137,7 @@ var account
     var self = this;
     var raceTime;
     var address1;
+    var addressWinner;
     var max = 300;
     var min = 120;
     var keepFastest = 301;
@@ -153,6 +154,10 @@ var account
           if (raceTime < keepFastest)
           {
             keepFastest = raceTime;
+            addressWinner = alladresses[i];
+            console.log(keepFastest);  
+            console.log(alladresses[i]);  
+
           }
           address1 = alladresses[i]; 
       
@@ -173,28 +178,18 @@ var account
               }
             })
         }
-      });
         self.setStatus("Simulation completed!");
-        self.getWinnerAddress(keepFastest);
+        self.getWinnerAddress(keepFastest, addressWinner);
+      });
 
       })
  },
 
- getWinnerAddress: function (time) {
-  var self = this;
-
-  raceEnrollment.deployed().then(function (contractInstance) {
-    return contractInstance.getWinnerAddress(time, { from: account }).then(function (v) {
-      document.getElementById("addressOfTheWinner").innerHTML = v.valueOf();
-      self.setStatus("We have got the marathon's winner!");
-
-    }).catch(function (e) {
-      console.log(e);
-      self.setStatus("Error getting marathon' winner");
+ getWinnerAddress: function (FastestTime, addressWinner) {
     
-    });
-  });
-
+    document.getElementById("addressOfTheWinner").innerHTML = addressWinner;
+    document.getElementById("timeOfTheWinner").innerHTML = FastestTime;
+  
  },
 
   generateRandomTime: function (min, max) {
