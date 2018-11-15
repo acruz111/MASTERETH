@@ -17,12 +17,7 @@ contract('raceEnrollment', function (accounts) {
 
   const emptyAddress = '0x0000000000000000000000000000000000000000';
 
-  beforeEach('setup contract for each test', async function () {
-    await raceEnrollment.deployed();
-  });
-
- 
-  it("enroll a new runner with provided attributes", function () {
+  it("Enroll a new runner with provided attributes", function () {
     raceEnrollment.deployed().then(function (contractInstance) {
       
       contractInstance.enrollRunner(name, surname, age, dni, raceTime, {from: runner1, value: web3.toWei(5, "ether")}).then(function (v) {
@@ -41,58 +36,21 @@ contract('raceEnrollment', function (accounts) {
       
     });
 
-    raceEnrollment.deployed().then(function (contractInstance) {
-      return contractInstance.getAttributesRunner(runner1, { from: account }).then(function (v) {
-        document.getElementById("NameRunnerRetrieved").innerHTML = v[0].valueOf();
-        document.getElementById("SurNameRunnerRetrieved").innerHTML = v[1].valueOf();
-        document.getElementById("AgeRunnerRetrieved").innerHTML = v[2].valueOf();
-        document.getElementById("DNIRunnerRetrieved").innerHTML = v[3].valueOf();
-        document.getElementById("RaceTimeRunnerRetrieved").innerHTML = v[4].valueOf();
+  })
 
+
+  it("Fetch a runner already enrolled",  function () {
+
+    raceEnrollment.deployed().then(function (contractInstance) {
+      return contractInstance.getAttributesRunner(runner1, { from: owner }).then(function (v) {
         assert.equal(v[0].valueOf(), name, 'name');
-        assert.equal(v[1].valueOf(), surname, 'surnmae');
+        assert.equal(v[1].valueOf(), surname, 'surname');
         assert.equal(v[2].valueOf(), age, 'age');
         assert.equal(v[3].valueOf(), dni, 'dni');
         assert.equal(v[4].valueOf(), raceTime, 'raceTime');
-
-      }).catch(function (e) {
-        console.log(e);
-      
-      });
+      });  
     });
+  })
 
-  });
 });
-
-// contract('MetaCoin', function (accounts) {
-//   it('should put 10000 MetaCoin in the first account', function () {
-//     return MetaCoin.deployed().then(function (instance) {
-//       return instance.getBalance.call(accounts[0])
-//     }).then(function (balance) {
-//       assert.equal(balance.valueOf(), 10000, "10000 wasn't in the first account")
-//     })
-//   })
-// it('should call a function that depends on a linked library', function () {
-//   var meta
-//   var metaCoinBalance
-//   var metaCoinEthBalance
-
-//   return MetaCoin.deployed().then(function (instance) {
-//     meta = instance
-//     return meta.getBalance.call(accounts[0])
-//   }).then(function (outCoinBalance) {
-//     metaCoinBalance = outCoinBalance.toNumber()
-//     return meta.getBalanceInEth.call(accounts[0])
-//   }).then(function (outCoinBalanceEth) {
-//     metaCoinEthBalance = outCoinBalanceEth.toNumber()
-//   }).then(function () {
-//     assert.equal(
-//       metaCoinEthBalance,
-//       2 * metaCoinBalance,
-//       'Library function returned unexpeced function, linkage may be broken'
-//     )
-//   })
-// })
-
-// }); 
 
