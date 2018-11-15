@@ -8,7 +8,7 @@ library EnrollmentLib {
 
     /**
      * @notice Test if the person who wants to enroll is eligible according to its age
-     * @param _age The input address that you know if is zero.
+     * @param _age The age inserted by the runner.
      * @return True if the age is over 18 years old, False otherwise.
      */
        function isOver18 (uint _age)

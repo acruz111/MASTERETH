@@ -1,11 +1,11 @@
 {
   "contractName": "EnrollmentLib",
   "abi": [],
-  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058209a2b361edda2a72e5e77845f71456a51c062b516a79e9b7c2cb6aea945eeeed90029",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058209a2b361edda2a72e5e77845f71456a51c062b516a79e9b7c2cb6aea945eeeed90029",
-  "sourceMap": "115:870:0:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "115:870:0:-;;;;;;;;",
-  "source": "pragma solidity ^0.4.24;\n\n/** \n * @title Enrollment Library\n * @dev Set of functions used to allow enrollments\n */\nlibrary EnrollmentLib {\n\n    /**\n     * @notice Test if the person who wants to enroll is eligible according to its age\n     * @param _age The input address that you know if is zero.\n     * @return True if the age is over 18 years old, False otherwise.\n     */\n       function isOver18 (uint _age)\n        internal\n        pure\n        returns (bool)\n    {\n        return (_age >= 18);\n    }\n    \n    /**\n     * @notice Test if the person who wants to enroll is eligible according to the fee\n     * @param _fee Indicates the fee the person who wants to enroll is going to pay\n     * @param _feeToEnroll Indicates the fee to allow enrollments\n     * @return True if the fees are equal, False otherwise.\n     */\n    function isValidFee (uint _fee, uint _feeToEnroll)\n        internal\n        pure\n        returns (bool)\n    {\n        return (_fee == _feeToEnroll);\n    }\n}",
+  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058201e474831494ae6afa302231d7f61fd206838913d6f4b0afd88d57af6aee6fdaf0029",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058201e474831494ae6afa302231d7f61fd206838913d6f4b0afd88d57af6aee6fdaf0029",
+  "sourceMap": "115:858:0:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "115:858:0:-;;;;;;;;",
+  "source": "pragma solidity ^0.4.24;\n\n/** \n * @title Enrollment Library\n * @dev Set of functions used to allow enrollments\n */\nlibrary EnrollmentLib {\n\n    /**\n     * @notice Test if the person who wants to enroll is eligible according to its age\n     * @param _age The age inserted by the runner.\n     * @return True if the age is over 18 years old, False otherwise.\n     */\n       function isOver18 (uint _age)\n        internal\n        pure\n        returns (bool)\n    {\n        return (_age >= 18);\n    }\n    \n    /**\n     * @notice Test if the person who wants to enroll is eligible according to the fee\n     * @param _fee Indicates the fee the person who wants to enroll is going to pay\n     * @param _feeToEnroll Indicates the fee to allow enrollments\n     * @return True if the fees are equal, False otherwise.\n     */\n    function isValidFee (uint _fee, uint _feeToEnroll)\n        internal\n        pure\n        returns (bool)\n    {\n        return (_fee == _feeToEnroll);\n    }\n}",
   "sourcePath": "/home/antonio/src/MASTERETH/PEC3/marathon/contracts/EnrollmentLib.sol",
   "ast": {
     "absolutePath": "/home/antonio/src/MASTERETH/PEC3/marathon/contracts/EnrollmentLib.sol",
@@ -45,7 +45,7 @@
             "body": {
               "id": 13,
               "nodeType": "Block",
-              "src": "470:36:0",
+              "src": "458:36:0",
               "statements": [
                 {
                   "expression": {
@@ -69,7 +69,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 3,
-                          "src": "488:4:0",
+                          "src": "476:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -87,7 +87,7 @@
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "496:2:0",
+                          "src": "484:2:0",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_18_by_1",
@@ -95,7 +95,7 @@
                           },
                           "value": "18"
                         },
-                        "src": "488:10:0",
+                        "src": "476:10:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -109,7 +109,7 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "TupleExpression",
-                    "src": "487:12:0",
+                    "src": "475:12:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -118,11 +118,11 @@
                   "functionReturnParameters": 7,
                   "id": 12,
                   "nodeType": "Return",
-                  "src": "480:19:0"
+                  "src": "468:19:0"
                 }
               ]
             },
-            "documentation": "@notice Test if the person who wants to enroll is eligible according to its age\n@param _age The input address that you know if is zero.\n@return True if the age is over 18 years old, False otherwise.",
+            "documentation": "@notice Test if the person who wants to enroll is eligible according to its age\n@param _age The age inserted by the runner.\n@return True if the age is over 18 years old, False otherwise.",
             "id": 14,
             "implemented": true,
             "isConstructor": false,
@@ -140,7 +140,7 @@
                   "name": "_age",
                   "nodeType": "VariableDeclaration",
                   "scope": 14,
-                  "src": "402:9:0",
+                  "src": "390:9:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -151,7 +151,7 @@
                     "id": 2,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "402:4:0",
+                    "src": "390:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -161,7 +161,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "401:11:0"
+              "src": "389:11:0"
             },
             "payable": false,
             "returnParameters": {
@@ -174,7 +174,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 14,
-                  "src": "460:4:0",
+                  "src": "448:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -185,7 +185,7 @@
                     "id": 5,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "460:4:0",
+                    "src": "448:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -195,10 +195,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "459:6:0"
+              "src": "447:6:0"
             },
             "scope": 30,
-            "src": "383:123:0",
+            "src": "371:123:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
@@ -207,7 +207,7 @@
             "body": {
               "id": 28,
               "nodeType": "Block",
-              "src": "937:46:0",
+              "src": "925:46:0",
               "statements": [
                 {
                   "expression": {
@@ -231,7 +231,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 16,
-                          "src": "955:4:0",
+                          "src": "943:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -246,13 +246,13 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 18,
-                          "src": "963:12:0",
+                          "src": "951:12:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "src": "955:20:0",
+                        "src": "943:20:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -266,7 +266,7 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "TupleExpression",
-                    "src": "954:22:0",
+                    "src": "942:22:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -275,7 +275,7 @@
                   "functionReturnParameters": 22,
                   "id": 27,
                   "nodeType": "Return",
-                  "src": "947:29:0"
+                  "src": "935:29:0"
                 }
               ]
             },
@@ -297,7 +297,7 @@
                   "name": "_fee",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "850:9:0",
+                  "src": "838:9:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -308,7 +308,7 @@
                     "id": 15,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "850:4:0",
+                    "src": "838:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -323,7 +323,7 @@
                   "name": "_feeToEnroll",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "861:17:0",
+                  "src": "849:17:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -334,7 +334,7 @@
                     "id": 17,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "861:4:0",
+                    "src": "849:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -344,7 +344,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "849:30:0"
+              "src": "837:30:0"
             },
             "payable": false,
             "returnParameters": {
@@ -357,7 +357,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "927:4:0",
+                  "src": "915:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -368,7 +368,7 @@
                     "id": 20,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "927:4:0",
+                    "src": "915:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -378,20 +378,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "926:6:0"
+              "src": "914:6:0"
             },
             "scope": 30,
-            "src": "829:154:0",
+            "src": "817:154:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
         "scope": 31,
-        "src": "115:870:0"
+        "src": "115:858:0"
       }
     ],
-    "src": "0:985:0"
+    "src": "0:973:0"
   },
   "legacyAST": {
     "absolutePath": "/home/antonio/src/MASTERETH/PEC3/marathon/contracts/EnrollmentLib.sol",
@@ -431,7 +431,7 @@
             "body": {
               "id": 13,
               "nodeType": "Block",
-              "src": "470:36:0",
+              "src": "458:36:0",
               "statements": [
                 {
                   "expression": {
@@ -455,7 +455,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 3,
-                          "src": "488:4:0",
+                          "src": "476:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -473,7 +473,7 @@
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "496:2:0",
+                          "src": "484:2:0",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_18_by_1",
@@ -481,7 +481,7 @@
                           },
                           "value": "18"
                         },
-                        "src": "488:10:0",
+                        "src": "476:10:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -495,7 +495,7 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "TupleExpression",
-                    "src": "487:12:0",
+                    "src": "475:12:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -504,11 +504,11 @@
                   "functionReturnParameters": 7,
                   "id": 12,
                   "nodeType": "Return",
-                  "src": "480:19:0"
+                  "src": "468:19:0"
                 }
               ]
             },
-            "documentation": "@notice Test if the person who wants to enroll is eligible according to its age\n@param _age The input address that you know if is zero.\n@return True if the age is over 18 years old, False otherwise.",
+            "documentation": "@notice Test if the person who wants to enroll is eligible according to its age\n@param _age The age inserted by the runner.\n@return True if the age is over 18 years old, False otherwise.",
             "id": 14,
             "implemented": true,
             "isConstructor": false,
@@ -526,7 +526,7 @@
                   "name": "_age",
                   "nodeType": "VariableDeclaration",
                   "scope": 14,
-                  "src": "402:9:0",
+                  "src": "390:9:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -537,7 +537,7 @@
                     "id": 2,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "402:4:0",
+                    "src": "390:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -547,7 +547,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "401:11:0"
+              "src": "389:11:0"
             },
             "payable": false,
             "returnParameters": {
@@ -560,7 +560,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 14,
-                  "src": "460:4:0",
+                  "src": "448:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -571,7 +571,7 @@
                     "id": 5,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "460:4:0",
+                    "src": "448:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -581,10 +581,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "459:6:0"
+              "src": "447:6:0"
             },
             "scope": 30,
-            "src": "383:123:0",
+            "src": "371:123:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
@@ -593,7 +593,7 @@
             "body": {
               "id": 28,
               "nodeType": "Block",
-              "src": "937:46:0",
+              "src": "925:46:0",
               "statements": [
                 {
                   "expression": {
@@ -617,7 +617,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 16,
-                          "src": "955:4:0",
+                          "src": "943:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -632,13 +632,13 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 18,
-                          "src": "963:12:0",
+                          "src": "951:12:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
-                        "src": "955:20:0",
+                        "src": "943:20:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -652,7 +652,7 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "TupleExpression",
-                    "src": "954:22:0",
+                    "src": "942:22:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -661,7 +661,7 @@
                   "functionReturnParameters": 22,
                   "id": 27,
                   "nodeType": "Return",
-                  "src": "947:29:0"
+                  "src": "935:29:0"
                 }
               ]
             },
@@ -683,7 +683,7 @@
                   "name": "_fee",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "850:9:0",
+                  "src": "838:9:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -694,7 +694,7 @@
                     "id": 15,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "850:4:0",
+                    "src": "838:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -709,7 +709,7 @@
                   "name": "_feeToEnroll",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "861:17:0",
+                  "src": "849:17:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -720,7 +720,7 @@
                     "id": 17,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "861:4:0",
+                    "src": "849:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -730,7 +730,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "849:30:0"
+              "src": "837:30:0"
             },
             "payable": false,
             "returnParameters": {
@@ -743,7 +743,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 29,
-                  "src": "927:4:0",
+                  "src": "915:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -754,7 +754,7 @@
                     "id": 20,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "927:4:0",
+                    "src": "915:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -764,20 +764,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "926:6:0"
+              "src": "914:6:0"
             },
             "scope": 30,
-            "src": "829:154:0",
+            "src": "817:154:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
         "scope": 31,
-        "src": "115:870:0"
+        "src": "115:858:0"
       }
     ],
-    "src": "0:985:0"
+    "src": "0:973:0"
   },
   "compiler": {
     "name": "solc",
@@ -915,8 +915,20 @@
       "links": {},
       "address": "0x999d6d1e230671a07e279738953dda0d5ba54474",
       "transactionHash": "0x8cbec40e04a8c5730cff6c96e1423abe2a7481c7cd408dd6cd9b437f44dc794a"
+    },
+    "1542229692501": {
+      "events": {},
+      "links": {},
+      "address": "0x65dcea14b2d5a5d664511b57b991a2607a25ba59",
+      "transactionHash": "0x8cf0289d8dfa17c98dd403d86727f224e1cd65e50f9ce8fb38f652a4e5a2e54a"
+    },
+    "1542230021999": {
+      "events": {},
+      "links": {},
+      "address": "0xde063d28deed477bf1b2a2947ec4976a61b57c1d",
+      "transactionHash": "0x53428dcacbcb8a7a03731d7201ae0e8feec496a705aac49a124fa6a75cbf42b4"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-13T20:49:58.020Z"
+  "updatedAt": "2018-11-14T21:17:25.806Z"
 }
