@@ -1758,8 +1758,14 @@
       "links": {},
       "address": "0x26515654316afc73fcb6d7bec2cff004904cd379",
       "transactionHash": "0xda71006cfcb7614039eb7535bbbd67f53968172566a1ebc39b54d8afc790679b"
+    },
+    "1542467188676": {
+      "events": {},
+      "links": {},
+      "address": "0x992c6c45065aeba078662e27d2db669769c85cc4",
+      "transactionHash": "0xda71006cfcb7614039eb7535bbbd67f53968172566a1ebc39b54d8afc790679b"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-17T10:03:08.958Z"
+  "updatedAt": "2018-11-17T15:06:51.470Z"
 }
