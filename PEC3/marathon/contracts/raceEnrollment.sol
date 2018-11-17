@@ -7,6 +7,19 @@ import "./EnrollmentLib.sol";
 
 contract raceEnrollment is Ownable {
 
+    bool public emergencyStop;
+    modifier noEmergency 
+    { 
+        if (!emergencyStop) 
+        _;
+    }
+    
+    modifier inEmergency 
+    {
+        if (emergencyStop) 
+        _;
+    }
+   
     uint constant FEE_RACE = 5 ether;
     address[] public allAdresses;
     uint i=0;
@@ -39,6 +52,7 @@ contract raceEnrollment is Ownable {
     /// @notice Enroll runner in the race
     function enrollRunner(string _name, string _surname, uint _age, string _dni, uint _raceTime) 
     public 
+    noEmergency
     payable 
     {     
       require(EnrollmentLib.isValidFee(msg.value, FEE_RACE));
@@ -62,7 +76,12 @@ contract raceEnrollment is Ownable {
     }
 
     // Get the attributes of the Runners of the marathon
-    function getAttributesRunner(address _addressRunner) public view returns (string _name, string _surname, uint _age, string _dni, uint _raceTime) {
+    function getAttributesRunner(address _addressRunner) 
+    public 
+    noEmergency
+    view 
+    returns (string _name, string _surname, uint _age, string _dni, uint _raceTime)
+    {
         
         _name = runnersByAdress[_addressRunner].name;
         _surname = runnersByAdress[_addressRunner].surname;
@@ -85,7 +104,8 @@ contract raceEnrollment is Ownable {
 
     // Set the simulated time performed by each runner to finish the race
     function setTimeRace(address _addressRunner, uint _raceTime) 
-    public     
+    public
+    noEmergency     
     onlyOwner
     {
       runnersByAdress[_addressRunner].raceTime = _raceTime;
@@ -97,6 +117,7 @@ contract raceEnrollment is Ownable {
     /// @param  winner address to pay the price
     function payPrice(address winner) 
     public 
+    noEmergency
     onlyOwner
     {
            uint amountPrice = balances[owner];
@@ -113,7 +134,7 @@ contract raceEnrollment is Ownable {
         revert();
     }
 
-    //  
+      
     //  @notice Destroy all data stored.
     //  Smart contract kill function. 
     //  
@@ -122,5 +143,15 @@ contract raceEnrollment is Ownable {
         onlyOwner
     {
         selfdestruct(owner);
+    }
+
+    
+    // @notice Enable the emergency stop.
+    // @dev Owner of the smart contract activate the emergency stop.
+    function enableEmergency() 
+        public 
+        onlyOwner
+    {
+        emergencyStop = !emergencyStop;        
     }
 }
