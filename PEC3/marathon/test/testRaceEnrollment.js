@@ -35,7 +35,7 @@ contract('raceEnrollment', async (accounts) => {
     
   });
 
-   it("Enroll a new runner with non valid provided attributes", async () => {
+   it("Enroll a new runner with non valid age attribute", async () => {
      
     try{
       await RaceEnrollment.enrollRunner(name, surname, 17, dni, raceTime, {from: runner1, value: web3.toWei(5, 'ether')});
@@ -43,15 +43,19 @@ contract('raceEnrollment', async (accounts) => {
       err = error;
     }
     assert.ok(err instanceof Error); 
-    
+       
+   });
+
+  it("Enroll a new runner with non valid fee attribute", async () => {
+     
     try{
-      await RaceEnrollment.enrollRunner(name, surname, age, dni, raceTime, {from: runner2, value: web3.toWei(4, 'ether')});
+      await RaceEnrollment.enrollRunner(name, surname, age, dni, raceTime, {from: runner1, value: web3.toWei(4, 'ether')});
     } catch (error) {
       err = error;
     }
     assert.ok(err instanceof Error);  
     
-   });
+  });
 
   it("Getting the address of the runner enrolled", async () => {
 
