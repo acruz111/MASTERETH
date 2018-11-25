@@ -38,10 +38,10 @@ You must see something like this:
 
 ```
 $ ls
-app                         design_pattern_decisions.md  package-lock.json  webpack.config.js
-avoiding_common_attacks.md  LICENSE                      README.md
-build                       migrations                   test
-contracts                   package.json                 truffle.js
+app                         design_pattern_decisions.md  node_modules       test
+avoiding_common_attacks.md  images                       package.json       truffle.js
+build                       LICENSE                      package-lock.json  webpack.config.js
+contracts                   migrations                   README.md
 
 ```
 Start Ganache or Ganache-cli. Open a new terminal and in the path of the project.
