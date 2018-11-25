@@ -18,16 +18,16 @@ File:   README
 
 This project is about a Decentralized Application (DApp) that allows users to be enrolled as runners in a marathon. The information regarding each runner can be consulted at any time. The DApp simulate the race and set a random race time to each runner. Then the winner of the marathon will get a prize.
 
-The DApp is based on standards explained in [design_patter_decisions.md](https://github.com/acruz111/MASTERETH/PEC3/marathon/design_pattern_decisions.md) file.
+The DApp is based on standards explained in [design_patter_decisions.md](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/design_pattern_decisions.md) file.
 
 
 ## How to set up?
 
 Clone this repository.
 ```
-$ git clone https://github.com/acruz111/consensys_devprogram_project.git
+$ git clone https://github.com/acruz111/MASTERETH.git
 ```
-Go to the repository folder.
+Go to MASTERETH/PEC3/marathon folder
 ```
 $ npm install //This take a while with some update recommendations.
 ``` 
@@ -35,11 +35,11 @@ You must see something like this:
 
 ```
 $ ls
-app                          migrations         test
-avoiding_common_attacks.md   node_modules       truffle.js
-contracts                    package.json       webpack.config.js
-deployed_addresses.txt       package-lock.json
-design_pattern_decisions.md  README.md
+app                         design_pattern_decisions.md  package-lock.json  webpack.config.js
+avoiding_common_attacks.md  LICENSE                      README.md
+build                       migrations                   test
+contracts                   package.json                 truffle.js
+
 ```
 Start Ganache or Ganache-cli.
 
@@ -47,7 +47,9 @@ Start Ganache or Ganache-cli.
 Open a new terminal and in the path of the project.
 
 ```
+$ truffle compile
 $ truffle migrate --reset // Use --reset if you have a previous build.
+$ truffle test
 ```
 If the migration is successful.
 
@@ -62,7 +64,7 @@ $ truffle test
 
 If everything goes well, you will see:
 
-![Alt text](https://github.com/ballesterosbr/consensys_devprogram_project/blob/master/screenshot.png?raw=true)
+![Alt text](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/images/raceimg.png)
 
 
 ### Use cases
