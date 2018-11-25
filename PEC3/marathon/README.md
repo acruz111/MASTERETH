@@ -43,14 +43,12 @@ build                       migrations                   test
 contracts                   package.json                 truffle.js
 
 ```
-Start Ganache or Ganache-cli.
-
-```
-Open a new terminal and in the path of the project.
+Start Ganache or Ganache-cli. Open a new terminal and in the path of the project.
 
 ```
 $ truffle compile
 ```
+
 ```
 $ truffle migrate --reset // Use --reset if you have a previous build.
 ```
@@ -58,12 +56,15 @@ If the migration is successful.
 
 ```
 $ npm run dev
+```
 
 Go to [http//localhost:8080](http://localhost:8080/) 
 
 **I recommend at this point to run the tests.**
 
+```
 $ truffle test
+```
 
 If everything goes well, you will see:
 
