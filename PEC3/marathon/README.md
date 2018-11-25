@@ -11,6 +11,7 @@ File:   README
 
 - [What does this project do?](#what-does-this-project-do)
 - [How to set up?](#how-to-set-up)
+- [Use Cases](#use-cases)
 - [How to use this DAPP?](#how-to-use-this-dapp)
 - [Test](#test)
 
