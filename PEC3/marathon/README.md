@@ -117,7 +117,9 @@ If everything goes well, you will see:
     * When `Simulate Race` button is clicked on, a random race time is assigned for each runner. The winner is the runner that got assigned the   fastest race time.
 * Pay Prize to the winner. (Only the owner can pay the prize) 
     * The Prize is the total amount collected from the fees, i.e (if the number of the runners enrolled are 3, the Prize will be 15 ethers, 5 ethers per each runner).
-    * Input the address of the winner and click on `Pay Prize` button    
+    * Input the address of the winner and click on `Pay Prize` button
+* Tip: The DApp displays messages to the user informing about the status of the application at the bottom of the screen.
+        
 
 ### A demo of how to use the DApp can be found in:
 [Demo Video](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/images/demo2.mkv/) 

@@ -4,7 +4,7 @@ pragma solidity 0.4.24;
 /** 
 * @title Enrollments into a Race
 * @author Antonio Cruz
-* @notice You can use this contract to enroll runners, simulate a race and pay a price.
+* @notice You can use this contract to enroll runners, simulate a race and pay a prize.
 * @dev For more implementation details read the "design_pattern_decisions.md" document. 
 */
 
@@ -155,9 +155,9 @@ contract raceEnrollment is Ownable {
     }
 
     /**
-     * @notice Pay a price to the winner
-     * @dev Owner of the smart contract can pay the price.
-     * @param winner address to pay the price
+     * @notice Pay a prize to the winner
+     * @dev Owner of the smart contract can pay the prize.
+     * @param winner address to pay the prize
      */      
     function payPrice(address winner) 
     public 
