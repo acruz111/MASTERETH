@@ -187,4 +187,3 @@ contract('raceEnrollment', async (accounts) => {
   });
 
 });
-
