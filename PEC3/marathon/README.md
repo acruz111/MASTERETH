@@ -73,7 +73,7 @@ Go to [http://localhost:8080](http://localhost:8080/)
 
 If everything goes well, you will see:
 
-![Alt text](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/images/raceimg.png)
+![Alt text](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/images/frontimg.png)
 
 
 ### Use cases
