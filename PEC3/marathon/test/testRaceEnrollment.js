@@ -9,9 +9,6 @@ var raceEnrollment = artifacts.require('./raceEnrollment.sol');
 contract('raceEnrollment', async (accounts) => {
   const owner = web3.eth.accounts[0];
   const runner1 = web3.eth.accounts[1];
-  const runner2 = web3.eth.accounts[2];
-  const runner3 = web3.eth.accounts[3];
-
 
   const name = "Peter";
   const surname = "Smith";
@@ -35,6 +32,7 @@ contract('raceEnrollment', async (accounts) => {
    */
   it("Enroll a new runner with provided attributes", async () => {
      
+
     await RaceEnrollment.enrollRunner(name, surname, age, dni, raceTime, {from: runner1, value: web3.toWei(5, 'ether')});
     var LogEnrollment = RaceEnrollment.logEnrollment();
     await LogEnrollment.watch((err, result) => {
@@ -76,10 +74,9 @@ contract('raceEnrollment', async (accounts) => {
    */
   it("Pay price to the winner. After paying the price the balance's owner should be zero", async () => {
 
-    await RaceEnrollment.enrollRunner(name, surname, age, dni, raceTime,{from: runner2, value: web3.toWei(5, 'ether')});  
-    await RaceEnrollment.payPrice(runner2, { from: owner });
+    await RaceEnrollment.payPrice(runner1, { from: owner });
     const balanceOwner = await RaceEnrollment.getBalanceTotalEnrollments.call({ from: owner });
-    assert.equal(0, balanceOwner, 'Balance`s owner after paying the price to the winner');
+    assert.equal(0, balanceOwner, 'Balance`s owner after paying the prize to the winner');
 
   });
 
@@ -91,7 +88,7 @@ contract('raceEnrollment', async (accounts) => {
 
     
     try{
-      await RaceEnrollment.payPrice(runner2, { from: runner1 });
+      await RaceEnrollment.payPrice(runner1, { from: runner1 });
     } catch (error) {
       err = error;
     }
@@ -107,7 +104,6 @@ contract('raceEnrollment', async (accounts) => {
     
     const alladd = await RaceEnrollment.getAllAddresses({ from: owner });
     assert.equal(alladd[0], runner1, 'Address of the runner1 enrolled');
-    assert.equal(alladd[1], runner2, 'Address of the runner2 enrolled');
 
   });
 
@@ -133,9 +129,9 @@ contract('raceEnrollment', async (accounts) => {
    */ 
   it("Setting race time for a runner", async () => {
 
-    await RaceEnrollment.enrollRunner(name, surname, age, dni, raceTime, {from: runner3, value: web3.toWei(5, 'ether')});
-    await RaceEnrollment.setTimeRace(runner3, 200, { from: owner });
-    const v = await RaceEnrollment.getAttributesRunner(runner3, { from: owner });
+//    await RaceEnrollment.enrollRunner(name, surname, age, dni, 0, {from: runner3, value: web3.toWei(5, 'ether')});
+    await RaceEnrollment.setTimeRace(runner1, 200, { from: owner });
+    const v = await RaceEnrollment.getAttributesRunner(runner1, { from: owner });
     assert.equal(v[4].valueOf(), 200, 'raceTime');
 
   });

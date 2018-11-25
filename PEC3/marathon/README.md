@@ -55,17 +55,21 @@ $ truffle migrate --reset // Use --reset if you have a previous build.
 ```
 If the migration is successful.
 
+**I recommend at this point to run the tests.**
+
+```
+$ truffle test
+```
+If everything goes well, you will see:
+
+![Alt text](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/images/tests.png)
+
 ```
 $ npm run dev
 ```
 
 Go to [http//localhost:8080](http://localhost:8080/) 
 
-**I recommend at this point to run the tests.**
-
-```
-$ truffle test
-```
 
 If everything goes well, you will see:
 
