@@ -118,6 +118,9 @@ If everything goes well, you will see:
 * Pay Prize to the winner. (Only the owner can pay the prize) 
     * The Prize is the total amount collected from the fees, i.e (if the number of the runners enrolled are 3, the Prize will be 15 ethers, 5 ethers per each runner).
     * Input the address of the winner and click on `Pay Prize` button    
+
+### A demo of how to use the DApp can be found in:
+[Demo Video](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/images/demo1.mkv/) 
 ---
 
 ## Thanks for using this DApp!
