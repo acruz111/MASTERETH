@@ -78,6 +78,6 @@ In order to execute this function, an advanced user can get the smart contract c
 ## Other possible implementations
 
 - It would be necessary to implement a Math Library or to use SafeMath library from OpenZeppelin because of security purposes.
-In this project, uint are used to increment the total amount of the price to be paid to the winner of the race. Calculation made in enrollRunner() function. The SafeMath library would protect the contract against integer overflow and underflow attacks.
+In this project, uint are used to increment the total amount of the prize to be paid to the winner of the race. Calculation made in enrollRunner() function. The SafeMath library would protect the contract against integer overflow and underflow attacks.
 
 - This DApp manages information about runners. To protect this information, in the client side could be implemented the [node.js Crypto module](https://nodejs.org/api/crypto.html). It would be necessary to encrypt the attributes of the runner by means of a password used to cipher and decipher the information.

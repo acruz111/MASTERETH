@@ -46,7 +46,7 @@ In this project there are no functions that share the same state.
 
 If a balance reaches the maximum uint value (2^256) it will circle back to zero. 
 
-In this project, uint are used to increment the total amount of the price to be paid to the winner of the race. Calculation made in enrollRunner() function. It would be necessary to implement a Math Library.
+In this project, uint are used to increment the total amount of the prize to be paid to the winner of the race. Calculation made in enrollRunner() function. It would be necessary to implement a Math Library.
 
 ## DoS with (Unexpected) revert
 
@@ -55,7 +55,7 @@ In this project there isn't an implementation of a "leader" system.
 ## DoS with Block Gas Limit
 
 - Even though a dynamic array is used in this project, the contract avoid any looping behaviour. Getter will handle the access to the array information. getAllAddresses().
-- Only the Owner can pay the price to the winner.
+- Only the Owner can pay the prize to the winner.
 - Only the Owner can set the race time for each runner.
 
 ## Fallback function 
