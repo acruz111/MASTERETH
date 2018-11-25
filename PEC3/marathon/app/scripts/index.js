@@ -83,11 +83,11 @@ var account
     raceEnrollment.deployed().then(function (contractInstance) {
       
       contractInstance.payPrice(addressWinner, { from: account }).then(function (v) {
-        self.setStatus("Price payed!");
+        self.setStatus("Prize payed!");
 
       }).catch(function (e) {
         console.log(e);
-        self.setStatus("Error paying price to the winner");
+        self.setStatus("Error paying prize to the winner");
       
       });
       
