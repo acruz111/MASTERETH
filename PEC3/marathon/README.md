@@ -18,9 +18,9 @@ File:   README
 
 This project is about a Decentralized Application (DApp) that allows users to be enrolled as runners in a marathon. The information regarding each runner can be consulted at any time. The DApp simulate the race and set a random race time to each runner. Then the winner of the marathon will get a prize.
 
-The DApp is based on standards explained in [design_patter_decisions.md](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/design_pattern_decisions.md) file.
+The DApp is based on standards explained in [design_pattern_decisions.md](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/design_pattern_decisions.md) file.
 
-The DApp takes into account the following security topics: https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/avoiding_common_attacks.md
+The DApp takes into account the following security topics: [avoiding_common_attacks.md](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/avoiding_common_attacks.md)
 
 
 ## How to set up?
