@@ -20,6 +20,8 @@ This project is about a Decentralized Application (DApp) that allows users to be
 
 The DApp is based on standards explained in [design_patter_decisions.md](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/design_pattern_decisions.md) file.
 
+The DApp takes into account the following security topics: https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/avoiding_common_attacks.md
+
 
 ## How to set up?
 
@@ -48,8 +50,9 @@ Open a new terminal and in the path of the project.
 
 ```
 $ truffle compile
+```
+```
 $ truffle migrate --reset // Use --reset if you have a previous build.
-$ truffle test
 ```
 If the migration is successful.
 
