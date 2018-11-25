@@ -1,9 +1,9 @@
 var raceEnrollment = artifacts.require('./raceEnrollment.sol');
 
-
 /**
  * @author Antonio Cruz
- * @ Test for raceEnrollment.sol
+ * @Test for raceEnrollment.sol
+ * Declaration of variables that will be useful to test the functions and attributes values.
  */
 
 contract('raceEnrollment', async (accounts) => {
@@ -28,10 +28,11 @@ contract('raceEnrollment', async (accounts) => {
      RaceEnrollment = await raceEnrollment.deployed();
   });
 
-
-  // Test that is possible to enroll a new runner providing valid attributes.
-  // After enrolling the runner, compare the expected values of the owner's balance and
-  // the address of the runner enrolled.
+  /**
+   * Test that is possible to enroll a new runner providing valid attributes.
+   * After enrolling the runner, compare the expected values of the owner's balance and
+   * the address of the runner enrolled.
+   */
   it("Enroll a new runner with provided attributes", async () => {
      
     await RaceEnrollment.enrollRunner(name, surname, age, dni, raceTime, {from: runner1, value: web3.toWei(5, 'ether')});
@@ -43,7 +44,9 @@ contract('raceEnrollment', async (accounts) => {
     
   });
 
-  // Test that is possible to get the address of a runner
+  /**
+   * Test that is possible to get the address of a runner.
+   */
   it("Getting the address of the runner enrolled", async () => {
 
     const add1 = await RaceEnrollment.getAddressRunner({ from: runner1 });
@@ -52,8 +55,10 @@ contract('raceEnrollment', async (accounts) => {
   });
 
 
-  //Test that is possible to retrieve the attributes of a enrolled runner
-  // Compare the values of the struct with the expected ones
+  /**
+   * Test that is possible to retrieve the attributes of a enrolled runner.
+   * Compare the values of the struct with the expected ones.
+   */
   it("Look for a runner already enrolled",   async () => {
 
     const v = await RaceEnrollment.getAttributesRunner(runner1, { from: owner });
@@ -65,8 +70,10 @@ contract('raceEnrollment', async (accounts) => {
       
   });  
 
-  // Test that is possible to perform a transaction. Transfer ethers to an address
-  // After the transfer of the ethers, the balance of the source account (owner of the contract) results zero
+  /** 
+   * Test that is possible to perform a transaction. Transfer ethers to an address
+   * After the transfer of the ethers, the balance of the source account (owner of the contract) results zero
+   */
   it("Pay price to the winner. After paying the price the balance's owner should be zero", async () => {
 
     await RaceEnrollment.enrollRunner(name, surname, age, dni, raceTime,{from: runner2, value: web3.toWei(5, 'ether')});  
@@ -76,8 +83,10 @@ contract('raceEnrollment', async (accounts) => {
 
   });
 
-  //Only the owner can transfer ethers to the winner's address
-  //Used try/catch to get the revert error from the require.
+  /**
+   * Only the owner can transfer ethers to the winner's address
+   * Used try/catch to get the revert error from the require.
+   */
   it("Pay price to the winner (Only owner)", async () => {
 
     
@@ -86,12 +95,13 @@ contract('raceEnrollment', async (accounts) => {
     } catch (error) {
       err = error;
     }
-
-  assert.ok(err instanceof Error);
+    assert.ok(err instanceof Error);
 
   });  
 
-  //Test that all the addresses of the runners enrolled can be retrieved
+  /**
+   * Test that all the addresses of the runners enrolled can be retrieved
+   */ 
   it("Getting all addresses of the enrolled runners", async () => {
 
     
@@ -101,8 +111,10 @@ contract('raceEnrollment', async (accounts) => {
 
   });
 
-  //Only de owner can retrieve all the addresses registered
-  //Used try/catch to get the revert error from the require.
+  /**
+   * Only de owner can retrieve all the addresses registered
+   * Used try/catch to get the revert error from the require.
+   */
   it("Getting all addresses of the enrolled runners (Only owner)", async () => {
 
     
@@ -116,7 +128,9 @@ contract('raceEnrollment', async (accounts) => {
 
   });
 
-  //Test that a time race can be set for a specific runner
+  /**
+   * Test that a race time can be set for a specific runner
+   */ 
   it("Setting race time for a runner", async () => {
 
     await RaceEnrollment.enrollRunner(name, surname, age, dni, raceTime, {from: runner3, value: web3.toWei(5, 'ether')});
@@ -126,8 +140,10 @@ contract('raceEnrollment', async (accounts) => {
 
   });
 
-  //Only the owner can set the time race for a runner
-  //Used try/catch to get the revert error from the require.
+  /**
+   * Only the owner can set the race time for a runner
+   * Used try/catch to get the revert error from the require.
+   */ 
   it("Setting race time for a runner (Only owner)", async () => {
 
     
@@ -141,8 +157,10 @@ contract('raceEnrollment', async (accounts) => {
   });
 
 
-  //Only the owner can perform the destruction.
-  //Used try/catch to catch de error.
+  /** 
+   * Only the owner can perform the destruction.
+   * Used try/catch to catch de error.
+   */ 
   it("Test selfdestruct (Only owner).", async () => {
 
     try {
@@ -154,8 +172,10 @@ contract('raceEnrollment', async (accounts) => {
 
   });
 
-  // Test that only the owner can activate the emergency stop.
-  // Used try/catch to catch de error.
+  /**
+   * Test that only the owner can activate the emergency stop.
+   * Used try/catch to catch de error.
+   */ 
   it("Test Emergency Stop", async () => {
 
     try {

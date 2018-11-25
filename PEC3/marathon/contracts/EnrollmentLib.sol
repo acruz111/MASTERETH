@@ -2,6 +2,7 @@ pragma solidity ^0.4.24;
 
 /** 
  * @title Enrollment Library
+ * @author Antonio Cruz
  * @dev Set of functions used to allow enrollments
  */
 library EnrollmentLib {

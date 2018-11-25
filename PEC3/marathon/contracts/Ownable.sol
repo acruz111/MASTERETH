@@ -1,5 +1,11 @@
 pragma solidity ^0.4.24;
 
+/** 
+* @title Ownability
+* @author Antonio Cruz
+* @notice You can use this contract to assign ownership.
+* @dev For more implementation details read the "design_pattern_decisions.md" document. 
+*/
 contract Ownable {
     
     address public owner;

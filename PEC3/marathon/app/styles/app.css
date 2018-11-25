@@ -11,6 +11,7 @@ label {
 }
 
 input {
+  margin-left: 1%;
   width: 400px;
   padding: 5px;
   font-size: 14px;
@@ -39,9 +40,10 @@ h2 {
 }
 
 h3 {
+  display: inline-block;
   font-weight: normal;
-  color: #AAA;
-  font-size: 20px;
+  color: rgb(81, 131, 197);
+  font-size: 18px;
 }
 
 .black {
