@@ -122,11 +122,7 @@ If everything goes well, you will see:
 ### A demo of how to use the DApp can be found in:
 [Demo Video](https://github.com/acruz111/MASTERETH/blob/master/PEC3/marathon/images/demo2.mkv/) 
 
----
 After clicking on the link -  "View Raw" to play the video.
-
----
----
 
 ## Thanks for using this DApp!
 
